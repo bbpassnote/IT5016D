@@ -1,6 +1,6 @@
 # Code that I used and found interesting
 
-# def display_stats() utilised a list 'count' method
+# def display_stats(self) utilised a list 'count' method
 # Method counts how many times an element appeaared in a list
 # This allowed to quickly count how many tickets were in each status
 
@@ -12,7 +12,7 @@ def display_stats(self):
     print('Tickets Re-Opened: ', Ticket.ticket_list.count("Re-Open"))
     
     
-# def display_ticket() used a while loop to format the output
+# def display_ticket(self) used a while loop to format the output
 # Loop cycles through each element 
 # And prints element along with a heading 
 # Index then cycles through to another ticket once done
@@ -32,3 +32,136 @@ def display_ticket(self):
         print(' ')
         
         i += 7
+
+
+# def it_response(self) used to locate the correct element in a list 
+# Once an index is located, the existing value (string) is overwritten
+# Using the square brackets [] to signify the element location plus a # value
+# Found to be a very efficient way to complete a part of the assignment
+
+
+def it_response(self):
+
+    ticket_locate = int(input('Please enter ticket number you want opened (e.g. "2002"): \n'))
+    index = Ticket.ticket_list.index(ticket_locate)
+
+    new_resp = input('Please enter your response to the issue: \n')
+    Ticket.ticket_list[index + 5] = new_resp
+
+    Ticket.ticket_list[index + 6] = 'Closed'
+    print(' ')
+    print('Issue #', ticket_locate, 'is currently set to Closed status')
+    
+    
+# Code that I was inspired by, or practiced with
+
+# The code below was an example I referred to to understand class and objects
+# Also included a basic function that allowed me to experiment 
+# To understand how class and objects are connected
+
+class Student:
+    'A student class'
+    stuCount = 0
+
+    def __init__(self):  
+          
+        self.name = input('enter student name:')
+        self.rollno = input('enter student rollno:')
+        Student.stuCount += 1
+
+    def displayStudent(self):  
+        print("Name:", self.name, "Rollno:", self.rollno)
+  
+  
+stu1 = Student()
+stu2 = Student()
+stu3 = Student()
+stu1.displayStudent()
+stu2.displayStudent()
+stu3.displayStudent()
+print('total no. of students:', Student.stuCount)
+
+# Code found online as part of training material
+# Was a good reference for understanding how to use a function and for loop together
+# And how to get the interpreter to keep running with changes in each iteration
+
+start = 99
+lyric_1 = " bottles of beer on the wall, "
+lyric_2 = " bottles of beer. Take one down, pass it around, "
+lyric_3 = " bottles of beer on the wall."
+def get_full_lyric(start):
+    print(start, lyric_1, start, lyric_2, start-1, lyric_3)
+    start -= 1
+    return start
+for count in range (0, start):
+    start = get_full_lyric(start)
+'''
+#assertion
+Output: Increasingly less numbers of bottles of beer
+'''
+
+
+
+# Code that I want to understand more
+
+# This code utilises the __str__ function 
+# To understand how to use this function to print objects in a correct format
+
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+  def __str__(self):
+    return f"{self.name}({self.age})"
+
+p1 = Person("John", 36)
+
+print(p1) 
+
+
+# Although code below is simple to understand
+# I want to investigate using multiple conditions in my IF statements
+# As i only used single conditions in my assignment
+# I would not have understood to use round brackets () to create multiple conditions
+
+a = 7
+b = 9
+c = 3
+  
+  
+if((a>b and a>c) and (a != b and a != c)):
+    print(a, " is the largest")
+elif((b>a and b>c) and (b != a and b != c)):
+    print(b, " is the largest")
+elif((c>a and c>b) and (c != a and c != b)):
+    print(c, " is the largest")
+else:
+    print("entered numbers are equal")
+    
+    
+    
+# I am interested in understand dictionary method more
+# I didn't use this method in assignment
+# But may be a more efficient way to completing the assignment
+
+my_dict = {'name':'Deadpool', 'designation': 'developer'}
+print(my_dict)
+Output: { 'designation': developer, 'name': Deadpool}
+
+my_dict['designation'] = 'sr developer'
+
+#Output: {'designation': sr developer, 'name': Deadpool}
+print(my_dict)
+
+my_dict['address'] = 'New York'  
+print(my_dict)
+
+
+# I am interested in understand the enumerate() method more
+# Since this method identifies the index/location of elements
+# I didn't use this method in assignment
+# But may be a more efficient way to completing the assignment 
+
+x = ('apple', 'banana', 'cherry')
+y = enumerate(x)
